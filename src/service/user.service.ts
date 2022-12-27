@@ -19,6 +19,8 @@ export async function createUser(
   }
 }
 
+// lohe
+
 export async function getUser(input: userGetInput) {
   try {
     if (input._id) {
@@ -29,5 +31,7 @@ export async function getUser(input: userGetInput) {
         $or: [{ name: input.name }, { email: input.email }],
       });
     }
-  } catch (error) {}
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 }
